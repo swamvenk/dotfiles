@@ -89,7 +89,7 @@
     # '';
     
     # Nvim config
-    ".config/nvim/init.lua".source = dotfiles/.config/nvim/init.lua;
+    #".config/nvim/init.lua".source = ../nvim/init.lua;
   };
 
   # You can also manage environment variables but you will have to manually
