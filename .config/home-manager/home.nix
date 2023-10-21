@@ -1,4 +1,4 @@
-{ config, pkgs, ... }:
+{ config, pkgs, unstable, ... }:
 
 {
   # Home Manager needs a bit of information about you and the paths it should
@@ -35,6 +35,7 @@
     #   echo "Hello, ${config.home.username}!"
     # '')
     pkgs.nerdfonts
+    unstable.cargo
   ];
 
   # Home manager programs to install and configure
@@ -74,6 +75,12 @@
     vimAlias = true;
   };
 
+
+  programs.go = {
+    enable = true; 
+    goPath = "gopath";
+  };
+  
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
   # plain files is through 'home.file'.
   home.file = {
@@ -89,7 +96,8 @@
     # '';
     
     # Nvim config
-    #".config/nvim/init.lua".source = ../nvim/init.lua;
+    ".config/nvim/init.lua".source = ../nvim/init.lua;
+    ".config/nvim/lua/kickstart/plugins/autoformat.lua".source = ../nvim/lua/kickstart/plugins/autoformat.lua;
   };
 
   # You can also manage environment variables but you will have to manually
